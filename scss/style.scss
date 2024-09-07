@@ -1,0 +1,65 @@
+@use "sass:math";
+// Підключення іконочного шрифту
+@import "_icons.scss";
+// Підключення шрифтів
+@import "_fonts.scss";
+// Скидання стилів
+@import "_reset.scss";
+// Міксіни
+@import "_mixins.scss";
+// Кольори
+@import "_colors.scss";
+// Налаштування адаптивної сітки 
+$minWidth:320;
+// Ширина полотна (макету)
+$maxWidth:1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer:1290;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 15;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + 2*$containerPadding;
+
+// ============================================
+
+body{
+    font-family:"Proxima Nova",sans-serif;
+    color: $mainColor;
+    background-color: $lightColor;
+}
+[class*="__container"]{
+    max-width: toEm($containerWidth);
+    padding-inline: toEm($containerPadding);
+    margin: 0 auto;
+}
+// ==============================================
+
+.wrapper {
+    overflow: clip;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & > main{
+        flex: 1 1 auto;
+        transition: 0.3s ease;
+        ._cart-open &,
+        ._catalog-open &{
+            filter: blur(toRem(5));
+        }
+    }
+}
+
+// Компоненти
+// Кастомні компоненти (частини інтерфейсу)
+@import "./custom/burger.scss";
+@import "./custom/_decor.scss";
+@import "./custom/_spoilers.scss";
+// Окремі сторінки
+@import "./_home.scss";
+@import "./_category.scss";
+// Окремі компоненти
+@import "_common.scss";
+@import "_header.scss";
+@import "_footer.scss";

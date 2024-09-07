@@ -1,0 +1,43 @@
+@mixin burgerIcon($color:#000){
+    display: none;
+    @media (max-width:toEm(767.98)) {
+        display: block;
+        position: relative;
+        width: toRem(30);
+        height: toRem(18);
+        span,
+        &::after,
+        &::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: toRem(2);
+            border-radius: toRem(12);
+            background: $color;
+            transition: 0.3s ease;
+        }
+        span{
+            top: calc(50% - toRem(1));
+        }
+        &::after{
+            bottom: 0;
+        }
+        &::before{
+            top: 0;
+        }
+        .burger-open &{
+            span{
+                width: 0;
+            }
+            &::after{
+                bottom: calc(50% - toRem(1));
+                transform: rotate(45deg);
+            }
+            &::before{
+                top: calc(50% - toRem(1));
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
