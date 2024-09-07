@@ -55,7 +55,7 @@ body{
 // Кастомні компоненти (частини інтерфейсу)
 @import "./custom/burger.scss";
 @import "./custom/_decor.scss";
-@import "./custom/_spoilers.scss";
+@import "./_spoilers.scss";
 // Окремі сторінки
 @import "./_home.scss";
 @import "./_category.scss";
